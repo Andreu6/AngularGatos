@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+authService: any;
 
   constructor(
     private readonly router: Router
@@ -15,8 +16,8 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      //TODO: Implementar la condición para poder entrar dentro de la MainPage
-      return true;
+      if (this.authService.user.email != '' && this.authService.user.password != '') {return true;}
+      else {this.router.navigate(['login']); return false;}
   }
 
 }
