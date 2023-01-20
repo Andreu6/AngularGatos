@@ -17,7 +17,7 @@ authService: any;
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
       if (this.authService.user.email != '' && this.authService.user.password != '') {return true;}
-      else {this.router.navigate(['login']); return false;}
+      else {this.router.navigate(['/login']); return false;}
   }
 
 }
