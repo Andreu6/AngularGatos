@@ -6,9 +6,8 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 
 //TODO: Definir las ruta/s que correspondan
 const routes: Routes = [
-{ path: 'main', component: MainPageComponent, canActivate: [AuthGuard]},
 { path: 'login', component: LoginPageComponent },
-{ path: 'main', component: LoginPageComponent,
+{ path: 'main', 
 loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule),
 canActivate: [AuthGuard] },
 { path: '**', redirectTo: '/login', pathMatch: 'full' },

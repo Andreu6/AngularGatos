@@ -1,2 +1,15 @@
-<!-- TODO: Acabar la página -->
-<h5>Main Page</h5>
+<div class="container">
+  <h4>Buscador de gatos...</h4>
+  <form (ngSubmit)="buscar()" [formGroup]="valor">
+  <mat-form-field appearance="fill">
+    <mat-label>Límite de imagenes</mat-label>
+    <mat-select formControlName="limite" required> 
+      <mat-option *ngFor="let opcion of opciones" [value]="opcion">
+        {{opcion}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button type="submit">Buscar</button>
+</form>
+<img *ngFor="let gat of gatos" src="{{gat.url}}">
+</div>
